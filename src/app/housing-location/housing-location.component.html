@@ -1,0 +1,16 @@
+<section class="listing">
+    <a [routerLink]="['/details', housingLocation.id]">
+    <div (mouseover)="inFocus = true" (mouseleave)="inFocus = false" >
+    <div *ngIf="inFocus" class="hover-info">
+        <ul>
+            <li>Units available: {{housingLocation.availableUnits}}</li>
+            <li>Wifi: <span *ngIf="housingLocation.wifi" style="color:green">Yes</span><span *ngIf="housingLocation.wifi == false" style="color:red">No</span></li>
+            <li>Laundry: <span *ngIf="housingLocation.laundry" style="color:green">Yes</span><span *ngIf="housingLocation.laundry == false" style="color:red">No</span></li>
+        </ul>
+    </div>
+    <img class="listing-photo" [src]="housingLocation.photo" alt="Exterior photo of {{housingLocation.name}}">
+    </div>
+    <h2 class="listing-heading">{{ housingLocation.name }}</h2></a>
+    <p class="listing-location">{{ housingLocation.city}}, {{housingLocation.state }}</p>
+    <a class="learn-more" [routerLink]="['/details', housingLocation.id]">Learn More</a>
+</section>
